@@ -1,0 +1,3 @@
+const banner=document.getElementById("cookieBanner");if(localStorage.getItem("cookieChoice"))banner.style.display="none";
+document.getElementById("acceptCookies")?.addEventListener("click",()=>{localStorage.setItem("cookieChoice","accepted");banner.style.display="none";});
+document.getElementById("rejectCookies")?.addEventListener("click",()=>{localStorage.setItem("cookieChoice","rejected");banner.style.display="none";});

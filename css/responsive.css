@@ -1,0 +1,31 @@
+@media(max-width:1120px){
+  .container{width:min(100% - 36px,1120px)}.main-nav,.header-actions{display:none}.menu-toggle{display:block;margin-left:auto}
+  .main-nav.open{display:flex;position:absolute;top:82px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--border)}
+  .hero{background-position:72% center}.hero-overlay{background:linear-gradient(90deg,rgba(249,253,255,.99) 0%,rgba(249,253,255,.95) 38%,rgba(249,253,255,.60) 62%,rgba(249,253,255,.08) 100%)}
+  .trust-grid,.steps-grid,.benefit-grid,.services-grid{grid-template-columns:repeat(2,1fr)}.treatments-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}.review-card{min-width:calc((100% - 22px)/2)}.footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .container{width:min(100% - 28px,680px)}.section{padding:66px 0}.brand img{width:190px}
+  .hero{min-height:720px;background-position:76% center}.hero-overlay{background:linear-gradient(90deg,rgba(249,253,255,.98) 0%,rgba(249,253,255,.91) 72%,rgba(249,253,255,.55) 100%)}
+  .hero-content{min-height:720px;padding:58px 0 120px;align-items:flex-start}.hero-copy{max-width:95%}h1{font-size:clamp(43px,12vw,62px)}.hero-text{font-size:17px}
+  .trust-bar{margin-top:-12px}
+  .trust-grid,.steps-grid,.benefit-grid,.services-grid,.treatments-grid,.form-grid,.footer-grid{grid-template-columns:1fr}
+.review-card{min-width:100%}.carousel-button.prev{left:-8px}.carousel-button.next{right:-8px}
+  .cookie-banner{flex-direction:column;align-items:flex-start}.cookie-banner div{display:flex;gap:10px}
+}
+
+@media(max-width:1120px){
+  .pricing-bg{background-position:72% center}
+  .pricing-gradient{background:linear-gradient(90deg,rgba(5,31,60,.98) 0%,rgba(8,45,85,.93) 45%,rgba(8,45,85,.52) 72%,rgba(8,45,85,.12) 100%)}
+  .pricing-panel{width:min(760px,72%)}
+}
+@media(max-width:720px){
+  .pricing-feature,.pricing-content{min-height:auto}
+  .pricing-bg{background-position:70% center}
+  .pricing-gradient{background:linear-gradient(180deg,rgba(5,31,60,.94) 0%,rgba(8,45,85,.88) 66%,rgba(8,45,85,.64) 100%)}
+  .pricing-content{padding:62px 0}
+  .pricing-panel{width:100%}
+  .pricing-table-wrap{overflow-x:auto}
+  .pricing-table-wrap table{min-width:720px}
+}
