@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="it"><head>
+<html lang="it">
+<head>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18374853254"></script>
@@ -8,6 +9,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
+    /* Consent Mode v2 */
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'analytics_storage': 'denied',
@@ -27,15 +29,81 @@
 
     gtag('js', new Date());
     gtag('config', 'AW-18374853254');
+
+    /* Google Ads conversion: Consultation Form Submitted */
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18374853254/SJJCCMn2It4cEIaF6LIE'
+    });
   </script>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Richiesta ricevuta | Sorriso Albania</title><meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
-<body><main class="section" style="min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#EAF5FC,#F7FBFE)">
-<section class="form-card centered" style="width:min(720px,calc(100% - 32px))"><img src="assets/logos/logo.svg" alt="Sorriso Albania" style="width:240px;margin:0 auto 28px">
-<p class="eyebrow">Richiesta ricevuta</p><h1 style="font-size:clamp(40px,7vw,64px)">Grazie per averci contattato</h1>
-<p>Abbiamo ricevuto la tua richiesta e gli eventuali documenti allegati. Riceverai un’email di conferma e ti ricontatteremo appena possibile.</p>
-<p id="reference" class="fine-print"></p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px"><a class="button button-primary" href="index.html">Torna al sito</a><a class="button button-outline" href="https://wa.me/355692030875" target="_blank" rel="noopener">Contattaci su WhatsApp</a></div>
-</section></main><script>const id=new URLSearchParams(location.search).get('id');if(id)document.getElementById('reference').textContent='Riferimento richiesta: '+id;</script></body></html>
+
+  <title>Richiesta ricevuta | Sorriso Albania</title>
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+  <main class="section"
+        style="min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#EAF5FC,#F7FBFE)">
+
+    <section class="form-card centered"
+             style="width:min(720px,calc(100% - 32px))">
+
+      <img
+        src="assets/logos/logo.svg"
+        alt="Sorriso Albania"
+        style="width:240px;margin:0 auto 28px"
+      >
+
+      <p class="eyebrow">Richiesta ricevuta</p>
+
+      <h1 style="font-size:clamp(40px,7vw,64px)">
+        Grazie per averci contattato
+      </h1>
+
+      <p>
+        Abbiamo ricevuto la tua richiesta e gli eventuali documenti allegati.
+        Riceverai un’email di conferma e ti ricontatteremo appena possibile.
+      </p>
+
+      <p id="reference" class="fine-print"></p>
+
+      <div
+        style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px"
+      >
+        <a class="button button-primary" href="index.html">
+          Torna al sito
+        </a>
+
+        <a
+          class="button button-outline"
+          href="https://wa.me/355692030875"
+          target="_blank"
+          rel="noopener"
+        >
+          Contattaci su WhatsApp
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    const id = new URLSearchParams(location.search).get('id');
+
+    if (id) {
+      document.getElementById('reference').textContent =
+        'Riferimento richiesta: ' + id;
+    }
+  </script>
+
+</body>
+</html>
