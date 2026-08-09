@@ -7,7 +7,10 @@
 
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
     /* Consent Mode v2 */
     gtag('consent', 'default', {
@@ -29,15 +32,18 @@
 
     gtag('js', new Date());
     gtag('config', 'AW-18374853254');
+  </script>
 
-    /* Google Ads conversion: Consultation Form Submitted */
+  <!-- Google Ads conversion:
+       Consultation Form Submitted – Manual -->
+  <script>
     gtag('event', 'conversion', {
-      'send_to': 'AW-18374853254/SJJCCMn2It4cEIaF6LIE'
+      'send_to': 'AW-18374853254/OPjKCKC55N4cEIaF6LIE'
     });
   </script>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Richiesta ricevuta | Sorriso Albania</title>
   <meta name="robots" content="noindex,nofollow">
@@ -50,11 +56,20 @@
 
 <body>
 
-  <main class="section"
-        style="min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#EAF5FC,#F7FBFE)">
+  <main
+    class="section"
+    style="
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#EAF5FC,#F7FBFE);
+    "
+  >
 
-    <section class="form-card centered"
-             style="width:min(720px,calc(100% - 32px))">
+    <section
+      class="form-card centered"
+      style="width:min(720px,calc(100% - 32px))"
+    >
 
       <img
         src="assets/logos/logo.svg"
@@ -62,7 +77,9 @@
         style="width:240px;margin:0 auto 28px"
       >
 
-      <p class="eyebrow">Richiesta ricevuta</p>
+      <p class="eyebrow">
+        Richiesta ricevuta
+      </p>
 
       <h1 style="font-size:clamp(40px,7vw,64px)">
         Grazie per averci contattato
@@ -73,12 +90,25 @@
         Riceverai un’email di conferma e ti ricontatteremo appena possibile.
       </p>
 
-      <p id="reference" class="fine-print"></p>
+      <p
+        id="reference"
+        class="fine-print"
+      ></p>
 
       <div
-        style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px"
+        style="
+          display:flex;
+          gap:12px;
+          justify-content:center;
+          flex-wrap:wrap;
+          margin-top:24px;
+        "
       >
-        <a class="button button-primary" href="index.html">
+
+        <a
+          class="button button-primary"
+          href="index.html"
+        >
           Torna al sito
         </a>
 
@@ -90,6 +120,7 @@
         >
           Contattaci su WhatsApp
         </a>
+
       </div>
 
     </section>
@@ -97,7 +128,7 @@
   </main>
 
   <script>
-    const id = new URLSearchParams(location.search).get('id');
+    const id = new URLSearchParams(window.location.search).get('id');
 
     if (id) {
       document.getElementById('reference').textContent =
