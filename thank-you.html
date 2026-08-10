@@ -2,6 +2,9 @@
 <html lang="it">
 <head>
 
+  <!-- Prevent this page from being served/restored stale from cache or back-forward navigation -->
+  <meta http-equiv="Cache-Control" content="no-store">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18374853254"></script>
 
@@ -12,33 +15,51 @@
       dataLayer.push(arguments);
     }
 
-    /* Consent Mode v2 */
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'analytics_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'wait_for_update': 500
-    });
-
-    if (localStorage.getItem('cookieChoice') === 'accepted') {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'analytics_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted'
+    function fireConversionTracking() {
+      /* Consent Mode v2 */
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
       });
+
+      if (localStorage.getItem('cookieChoice') === 'accepted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'AW-18374853254');
+
+      /* Fire the conversion only once per unique submission, so reloads
+         or back/forward navigation don't send duplicate conversions. */
+      var submissionId = new URLSearchParams(window.location.search).get('id') || 'no-id';
+      var firedKey = 'convFired_' + submissionId;
+
+      if (!sessionStorage.getItem(firedKey)) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18374853254/OPjKCKC55N4cEIaF6LIE'
+        });
+        sessionStorage.setItem(firedKey, '1');
+      }
     }
 
-    gtag('js', new Date());
-    gtag('config', 'AW-18374853254');
-  </script>
+    fireConversionTracking();
 
-  <!-- Google Ads conversion:
-       Consultation Form Submitted – Manual -->
-  <script>
-    gtag('event', 'conversion', {
-      'send_to': 'AW-18374853254/OPjKCKC55N4cEIaF6LIE'
+    /* If the browser restores this page from its back-forward cache
+       (e.g. user hits Back then Forward), re-run so consent/tracking
+       state isn't left stale from the frozen snapshot. The dedupe
+       guard above still prevents a duplicate conversion from being sent. */
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        fireConversionTracking();
+      }
     });
   </script>
 
