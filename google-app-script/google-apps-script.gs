@@ -20,7 +20,9 @@ const HEADERS = [
   "Timestamp", "Submission ID", "Nome", "Cognome", "Telefono / WhatsApp",
   "Email", "Età", "Città / Provincia", "Trattamento", "Preferenza di contatto",
   "Periodo indicativo", "Disponibilità oraria", "Messaggio", "File 1 URL",
-  "File 2 URL", "File 3 URL", "Consenso privacy", "Consenso marketing", "Stato"
+  "File 2 URL", "File 3 URL", "Consenso privacy", "Consenso marketing", "Stato",
+  "Pagina di origine", "GCLID", "UTM Source", "UTM Medium", "UTM Campaign",
+  "UTM Term", "UTM Content"
 ];
 
 function doGet() {
@@ -64,7 +66,14 @@ function doPost(e) {
       fileUrls[2] || "",
       data.privacyConsent === true ? "Sì" : "No",
       data.marketingConsent === true ? "Sì" : "No",
-      "Nuova"
+      "Nuova",
+      safeCell_(data.pageUrl),
+      safeCell_(data.gclid),
+      safeCell_(data.utmSource),
+      safeCell_(data.utmMedium),
+      safeCell_(data.utmCampaign),
+      safeCell_(data.utmTerm),
+      safeCell_(data.utmContent)
     ]);
 
     sendBusinessNotification_(data, timestamp, fileUrls);
