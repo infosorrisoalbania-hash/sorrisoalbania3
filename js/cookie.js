@@ -1,7 +1,15 @@
 const banner = document.getElementById("cookieBanner");
 const cookieChoice = localStorage.getItem("cookieChoice");
 
-if (cookieChoice && banner) banner.style.display = "none";
+if (banner) {
+  if (cookieChoice) {
+    banner.style.display = "none";
+  } else {
+    // Delay the banner so the hero content is visible, unobstructed, on first paint.
+    banner.style.display = "none";
+    setTimeout(() => { banner.style.display = ""; }, 1500);
+  }
+}
 
 function updateGoogleConsent(granted) {
   if (typeof window.gtag !== "function") return;

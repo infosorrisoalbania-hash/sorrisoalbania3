@@ -12,7 +12,7 @@
   .trust-bar{margin-top:-12px}
   .trust-grid,.steps-grid,.benefit-grid,.services-grid,.treatments-grid,.form-grid,.footer-grid{grid-template-columns:1fr}
 .review-card{min-width:100%}.carousel-button.prev{left:-8px}.carousel-button.next{right:-8px}
-  .cookie-banner{flex-direction:column;align-items:flex-start;left:10px;right:10px;bottom:10px;padding:14px;gap:10px}.cookie-banner p{font-size:13px;line-height:1.4}.cookie-banner div{display:flex;gap:10px}.cookie-banner button{padding:13px 15px;font-size:13px;min-height:44px}
+  .cookie-banner{flex-direction:row;flex-wrap:wrap;align-items:center;left:10px;right:10px;bottom:10px;padding:10px 12px;gap:8px 10px;max-width:420px;margin:0 auto}.cookie-banner p{font-size:12px;line-height:1.3;flex:1 1 100%}.cookie-banner div{display:flex;gap:8px;flex:1 1 100%}.cookie-banner button{padding:9px 12px;font-size:12px;min-height:40px;flex:1}
 }
 
 @media(max-width:1120px){
