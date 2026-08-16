@@ -174,7 +174,15 @@
     <div class="container footer-note">Il sito offre servizi di intermediazione, informazione e assistenza organizzativa. Non fornisce diagnosi, prescrizioni o prestazioni sanitarie.</div>
   </footer>
 
-  <a id="floatingWhatsapp" class="floating-whatsapp" href="#" aria-label="Contattaci su WhatsApp">💬</a>
+  <div id="waWidget" class="wa-widget">
+    <div id="waBubble" class="wa-bubble" role="dialog" aria-label="Messaggio WhatsApp">
+      <button id="waBubbleClose" class="wa-bubble-close" aria-label="Chiudi">×</button>
+      <p class="wa-bubble-greeting">Ciao! Hai domande sul tuo preventivo?</p>
+      <p class="wa-bubble-sub">Scrivici, rispondiamo subito 💬</p>
+      <a id="waBubbleOpen" class="wa-bubble-open" href="#" target="_blank" rel="noopener">Apri chat</a>
+    </div>
+    <a id="floatingWhatsapp" class="floating-whatsapp" href="#" aria-label="Contattaci su WhatsApp">💬</a>
+  </div>
 
   <div id="cookieBanner" class="cookie-banner">
     <p>Utilizziamo cookie essenziali. I cookie non necessari restano disattivati finché non presti il consenso.</p>
@@ -195,12 +203,42 @@
     const heroWhatsappBtn = document.getElementById("heroWhatsappBtn");
     if (heroWhatsappBtn) heroWhatsappBtn.href = waHref;
 
+    const waBubbleOpen = document.getElementById("waBubbleOpen");
+    if (waBubbleOpen) waBubbleOpen.href = waHref;
+
     // track which CTA path people actually take (WhatsApp vs form vs phone), read-only signal
     function trackCtaClick(label) {
       if (typeof window.gtag === "function") window.gtag("event", "cta_click", { cta_label: label });
     }
     heroWhatsappBtn?.addEventListener("click", () => trackCtaClick("hero_whatsapp"));
     document.getElementById("floatingWhatsapp")?.addEventListener("click", () => trackCtaClick("floating_whatsapp"));
+    waBubbleOpen?.addEventListener("click", () => trackCtaClick("wa_bubble"));
+
+    // proactive WhatsApp bubble: appears once the cookie banner is out of the way
+    // (already dismissed, or the moment the user dismisses it) - never both on
+    // screen at once. Dismissible, never shown again this session once closed.
+    const waWidget = document.getElementById("waWidget");
+    const waBubbleClose = document.getElementById("waBubbleClose");
+    const cookieBannerEl = document.getElementById("cookieBanner");
+
+    function bannerIsShowing() {
+      return cookieBannerEl && getComputedStyle(cookieBannerEl).display !== "none";
+    }
+    function tryShowWaBubble() {
+      if (!waWidget || sessionStorage.getItem("waBubbleDismissed") || bannerIsShowing()) return;
+      waWidget.classList.add("wa-bubble-visible");
+    }
+    if (waWidget) {
+      setTimeout(tryShowWaBubble, 4000);
+      document.getElementById("acceptCookies")?.addEventListener("click", () => setTimeout(tryShowWaBubble, 400));
+      document.getElementById("rejectCookies")?.addEventListener("click", () => setTimeout(tryShowWaBubble, 400));
+    }
+    function dismissWaBubble() {
+      waWidget?.classList.remove("wa-bubble-visible");
+      sessionStorage.setItem("waBubbleDismissed", "1");
+    }
+    waBubbleClose?.addEventListener("click", dismissWaBubble);
+    waBubbleOpen?.addEventListener("click", dismissWaBubble);
     document.querySelectorAll('a[href="#consulenza"]').forEach(el =>
       el.addEventListener("click", () => trackCtaClick("form_anchor"))
     );
