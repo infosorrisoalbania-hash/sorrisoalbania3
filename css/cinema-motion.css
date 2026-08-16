@@ -51,10 +51,16 @@ html.scene-3d .hero-content{padding-top:150px}
 html.scene-3d .trust-bar{margin-top:32px}
 html.scene-3d .hero-media img{animation:none;will-change:transform}
 
-/* Treatments: pins while the row of cards scroll-jacks horizontally */
+/* Treatments: pins while the row of cards scroll-jacks horizontally.
+   height:100vh keeps the sticky box pinned for the whole stage, but the
+   cards themselves are only ~270px tall — align-items:flex-start with a
+   fixed top offset left a large permanent void below them for the entire
+   scrub (confirmed via screenshot: cards stranded near the top, ~500px of
+   blank space beneath, for the full pinned duration). Centering keeps them
+   framed mid-viewport throughout instead. */
 html.scene-3d .treatments-rail{width:100%;margin-inline:0}
-html.scene-3d .treatments-stage{height:170vh}
-html.scene-3d .treatments-inner{position:sticky;top:0;height:100vh;display:flex;align-items:flex-start;padding-top:14vh;overflow:hidden;perspective:1500px}
+html.scene-3d .treatments-stage{height:145vh}
+html.scene-3d .treatments-inner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;perspective:1500px}
 html.scene-3d .treatments-track{display:flex;flex-wrap:nowrap;gap:34px;margin-top:0;padding:0 8vw;width:max-content;perspective:none;will-change:transform}
 html.scene-3d .treatment-card{width:min(360px,72vw);flex:none}
 html.scene-3d .treatment-card:nth-child(odd){transform:rotateY(-3deg)}

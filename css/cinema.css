@@ -124,6 +124,13 @@ p{margin:0 0 1em}
 /* ---------- Sections ---------- */
 .section{padding:100px 0}
 .section-soft{background:linear-gradient(180deg,var(--paper) 0%,var(--cream) 100%)}
+/* Trattamenti follows another section on the same pale background with no
+   visual break between them, so the default 100px+100px of stacked section
+   padding read as one big empty void. Tighter padding on both sides of
+   that seam (the internal treatments-rail already adds its own vertical
+   room below the heading). */
+#come-funziona.journey-section{padding-bottom:60px}
+#trattamenti.section{padding-top:36px}
 .section-heading{max-width:820px}
 .section-heading h2{margin-top:14px}
 .centered{text-align:center;margin-inline:auto}
@@ -305,6 +312,10 @@ footer .grain{opacity:.06}
   .brand img{width:172px}
   .hero-content{padding:130px 0 60px}
   .hero-media img{object-position:70% 40%}
+  /* Hero content fills the whole hero height on narrow screens (no spare
+     room below it), so the absolute-positioned scroll cue lands on top of
+     the last CTA button instead of in empty space beneath it. */
+  .scroll-cue{display:none}
   .trust-bar{margin-top:24px}
   .trust-grid{padding:24px 22px;gap:22px}
   .trust-grid,.steps-grid,.benefit-grid,.services-grid,.results-grid,.treatments-track,.form-grid,.footer-grid{grid-template-columns:1fr}
