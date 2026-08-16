@@ -213,6 +213,16 @@ th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line-dark)
 .result-card p{color:var(--muted);font-size:14px;margin:0 24px 22px}
 .results-consent{margin-top:26px}
 
+/* ---------- Recensioni pazienti ---------- */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
+.review-card{display:flex;flex-direction:column}
+.review-mark{font-family:"Fraunces",serif;font-size:44px;line-height:1;color:var(--gold-soft);font-weight:600}
+.review-card blockquote{margin:6px 0 22px;font-size:15px;line-height:1.65;color:var(--ink)}
+.review-author{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.review-author strong{display:block;font-size:14.5px;color:var(--ink)}
+.review-author span{display:block;font-size:13px;color:var(--muted)}
+.review-treatment{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--blue);background:var(--light);border-radius:100px;padding:6px 12px;text-align:right}
+
 .lightbox{position:fixed;inset:0;z-index:600;display:none;align-items:center;justify-content:center;padding:5vh 5vw;background:rgba(4,16,31,.86);backdrop-filter:blur(6px)}
 .lightbox.is-open{display:flex}
 .lightbox img{max-width:min(900px,100%);max-height:90vh;border-radius:14px;box-shadow:var(--shadow-lg)}
@@ -299,7 +309,7 @@ footer .grain{opacity:.06}
   .menu-toggle{display:block;margin-left:auto}
   .main-nav.open{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy-deep);flex-direction:column;justify-content:center;align-items:center;gap:26px;z-index:150}
   .main-nav.open a{font-size:22px;color:#fff}
-  .trust-grid,.steps-grid,.benefit-grid,.services-grid,.results-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-grid,.steps-grid,.benefit-grid,.services-grid,.results-grid,.reviews-grid{grid-template-columns:repeat(2,1fr)}
   .treatments-track{grid-template-columns:repeat(2,1fr)}
   .contact-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
@@ -318,7 +328,7 @@ footer .grain{opacity:.06}
   .scroll-cue{display:none}
   .trust-bar{margin-top:24px}
   .trust-grid{padding:24px 22px;gap:22px}
-  .trust-grid,.steps-grid,.benefit-grid,.services-grid,.results-grid,.treatments-track,.form-grid,.footer-grid{grid-template-columns:1fr}
+  .trust-grid,.steps-grid,.benefit-grid,.services-grid,.results-grid,.reviews-grid,.treatments-track,.form-grid,.footer-grid{grid-template-columns:1fr}
   .lightbox-close{top:12px;right:12px}
   .pricing-feature{min-height:auto}
   .pricing-content{padding:80px 0}
