@@ -57,8 +57,9 @@ input:focus,select:focus,textarea:focus{outline:3px solid rgba(17,104,192,.12);b
 .honeypot{position:absolute;left:-9999px}.form-status{font-weight:800}.success{color:#147a3b}.error{color:#b42318}
 footer{background:linear-gradient(135deg,#082D55,#051F3C);color:#fff;padding:56px 0 24px}.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px}.footer-grid h3{color:#fff}.footer-grid a{display:block;color:rgba(255,255,255,.75);margin:8px 0}.footer-grid p{color:rgba(255,255,255,.72)}.footer-logo{width:220px;filter:brightness(0) invert(1)}
 .footer-note{border-top:1px solid rgba(255,255,255,.14);padding-top:22px;margin-top:34px;color:rgba(255,255,255,.56);font-size:12px}
+.floating-whatsapp{position:fixed;right:20px;bottom:20px;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;font-size:26px;box-shadow:0 12px 25px rgba(0,0,0,.2);z-index:80}
 .wa-widget{position:fixed;right:20px;bottom:20px;z-index:80}
-.floating-whatsapp{position:relative;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;font-size:26px;box-shadow:0 12px 25px rgba(0,0,0,.2)}
+.wa-widget .floating-whatsapp{position:relative;right:auto;bottom:auto}
 .wa-bubble{position:absolute;right:0;bottom:74px;width:250px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:16px 18px 18px;opacity:0;transform:translateY(10px) scale(.96);pointer-events:none;transition:opacity .25s,transform .25s}
 .wa-bubble-visible .wa-bubble{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
 .wa-bubble-close{position:absolute;top:8px;right:10px;border:0;background:none;font-size:18px;line-height:1;color:var(--text);cursor:pointer;padding:4px}
