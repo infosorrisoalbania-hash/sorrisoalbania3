@@ -96,7 +96,7 @@ p{margin:0 0 1em}
 .hero-content{position:relative;padding:120px 0 60px}
 .hero-copy{max-width:760px}
 .hero-copy .eyebrow{color:var(--gold-soft)}.hero-copy .eyebrow::before{background:var(--gold-soft)}
-.hero h1{color:#fff;margin:20px 0 26px}
+.hero h1{color:#fff;margin:20px 0 26px;font-size:clamp(38px,4.6vw,64px)}
 .hero h1 em{font-style:italic;color:var(--gold-soft)}
 .word{display:inline-block;overflow:hidden;vertical-align:top}
 .word-inner{display:inline-block;will-change:transform}
@@ -134,10 +134,12 @@ p{margin:0 0 1em}
    and shows the WebGL flythrough instead, only once it has confirmed it can
    actually run (desktop, WebGL, not touch, not reduced motion). */
 .steps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:60px}
-.step-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 26px 30px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.step-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:0;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .step-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-.step-card .number{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-family:"Fraunces",serif;font-weight:600;font-size:16px;margin-bottom:20px}
-.step-card .icon-box{width:52px;height:52px;border-radius:15px;background:linear-gradient(145deg,#eaf5fc,#fff);display:grid;place-items:center;font-size:23px;position:absolute;right:24px;top:26px}
+.step-media{position:relative;aspect-ratio:4/5;background:linear-gradient(145deg,#eaf5fc,#fff)}
+.step-media video{width:100%;height:100%;object-fit:cover;display:block}
+.step-card .number{position:absolute;left:14px;top:14px;z-index:2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(6,20,38,.72);backdrop-filter:blur(4px);color:#fff;font-family:"Fraunces",serif;font-weight:600;font-size:14px}
+.step-body{padding:22px 22px 26px}
 .step-card h3{font-size:18px}
 .step-card p{margin:0;font-size:14.5px;color:var(--muted)}
 .fine-print{font-size:13px;color:var(--muted)}
