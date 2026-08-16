@@ -16,6 +16,12 @@ document.getElementById("footerEmail").textContent=cfg.emailAddress||"";
 const waBubbleOpen=document.getElementById("waBubbleOpen");
 if(waBubbleOpen)waBubbleOpen.href=waHref;
 
+document.querySelectorAll(".wa-treatment-link").forEach(a=>{
+  const topic=a.dataset.treatment;
+  const text=encodeURIComponent(`Ciao, vorrei ricevere informazioni su: ${topic}.`);
+  a.href=cfg.whatsappNumber?`https://wa.me/${cfg.whatsappNumber}?text=${text}`:"#consulenza";
+});
+
 // proactive WhatsApp bubble: same behavior as the landing page (appears once
 // the cookie banner is out of the way, typing-delay animation, unread badge,
 // dismissible, shown once per tab session) - general "how can we help" copy
