@@ -318,7 +318,21 @@ Il nostro obiettivo non è soltanto offrirti un nuovo sorriso, ma garantirti qua
     <div class="container footer-note">Il sito offre servizi di intermediazione, informazione e assistenza organizzativa. Non fornisce diagnosi, prescrizioni o prestazioni sanitarie.</div>
   </footer>
 
-  <a id="floatingWhatsapp" class="floating-whatsapp" href="#" aria-label="Contattaci su WhatsApp">💬</a>
+  <div id="waWidget" class="wa-widget">
+    <div id="waBubble" class="wa-bubble" role="dialog" aria-label="Messaggio WhatsApp">
+      <button id="waBubbleClose" class="wa-bubble-close" aria-label="Chiudi">×</button>
+      <div id="waTyping" class="wa-typing"><span></span><span></span><span></span></div>
+      <div id="waBubbleContent" class="wa-bubble-content">
+        <p class="wa-bubble-greeting">Ciao! Come possiamo aiutarti?</p>
+        <p class="wa-bubble-sub">Scrivici, rispondiamo subito 💬</p>
+        <a id="waBubbleOpen" class="wa-bubble-open" href="#" target="_blank" rel="noopener">Apri chat</a>
+      </div>
+    </div>
+    <a id="floatingWhatsapp" class="floating-whatsapp" href="#" aria-label="Contattaci su WhatsApp">
+      💬
+      <span id="waBadge" class="wa-badge"></span>
+    </a>
+  </div>
 
   <div id="cookieBanner" class="cookie-banner">
     <p>Utilizziamo cookie essenziali. I cookie non necessari restano disattivati finché non presti il consenso.</p>

@@ -13,6 +13,34 @@ document.getElementById("footerWhatsapp").href=waHref;
 document.getElementById("footerPhone").textContent=cfg.phoneNumber||"";
 document.getElementById("footerEmail").textContent=cfg.emailAddress||"";
 
+const waBubbleOpen=document.getElementById("waBubbleOpen");
+if(waBubbleOpen)waBubbleOpen.href=waHref;
+
+// proactive WhatsApp bubble: same behavior as the landing page (appears once
+// the cookie banner is out of the way, typing-delay animation, unread badge,
+// dismissible, shown once per tab session) - general "how can we help" copy
+// here rather than the landing page's preventivo-specific greeting.
+const waWidget=document.getElementById("waWidget");
+const waBadge=document.getElementById("waBadge");
+const cookieBannerEl=document.getElementById("cookieBanner");
+function bannerIsShowing(){return cookieBannerEl&&getComputedStyle(cookieBannerEl).display!=="none";}
+function hideWaBadge(){waBadge?.classList.remove("wa-badge-visible");}
+function tryShowWaBubble(){
+  if(!waWidget||sessionStorage.getItem("waBubbleDismissed")||bannerIsShowing())return;
+  waWidget.classList.add("wa-bubble-visible","wa-bubble-typing");
+  setTimeout(()=>{waWidget.classList.remove("wa-bubble-typing");hideWaBadge();},1200);
+}
+function dismissWaBubble(){waWidget?.classList.remove("wa-bubble-visible");sessionStorage.setItem("waBubbleDismissed","1");}
+if(waWidget){
+  waBadge?.classList.add("wa-badge-visible");
+  setTimeout(tryShowWaBubble,4000);
+  document.getElementById("acceptCookies")?.addEventListener("click",()=>setTimeout(tryShowWaBubble,400));
+  document.getElementById("rejectCookies")?.addEventListener("click",()=>setTimeout(tryShowWaBubble,400));
+  document.getElementById("floatingWhatsapp")?.addEventListener("click",hideWaBadge);
+  document.getElementById("waBubbleClose")?.addEventListener("click",dismissWaBubble);
+  waBubbleOpen?.addEventListener("click",dismissWaBubble);
+}
+
 const reviews=Array.isArray(window.CLIENT_REVIEWS)?window.CLIENT_REVIEWS:[];
 const track=document.getElementById("reviewsTrack");
 let reviewIndex=0;
