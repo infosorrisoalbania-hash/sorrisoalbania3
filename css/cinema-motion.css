@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Sorriso Albania — 3D scroll motion layer (GSAP/ScrollTrigger hooks)
+   Everything renders fully visible by default. Hidden/offset "start" states
+   are only switched on once html.gsap-ready is added by cinema.js — i.e.
+   only after GSAP + ScrollTrigger have actually loaded and will finish the
+   animation. If the CDN fails or JS is off, nothing is ever left invisible.
+   ========================================================================== */
+
+/* -- Hero entrance -- */
+.word-inner{display:inline-block;will-change:transform}
+html.gsap-ready .word-inner{transform:translateY(115%) rotateX(-45deg)}
+
+html.gsap-ready .hero-copy .eyebrow{opacity:0;transform:translateY(16px)}
+html.gsap-ready .hero-copy .hero-text{opacity:0;transform:translateY(20px)}
+html.gsap-ready .hero-copy .check-list li{opacity:0;transform:translateY(14px)}
+html.gsap-ready .hero-copy .hero-actions{opacity:0;transform:translateY(18px)}
+html.gsap-ready .scroll-cue{opacity:0}
+html.gsap-ready .trust-bar .trust-item{opacity:0;transform:translateY(30px) rotateX(-14deg)}
+
+/* -- Generic scroll reveals, set via data-reveal on any element -- */
+html.gsap-ready [data-reveal]{opacity:0;transform:translateY(40px)}
+html.gsap-ready [data-reveal="left"]{transform:translateY(16px) rotateY(-16deg)}
+html.gsap-ready [data-reveal="right"]{transform:translateY(16px) rotateY(16deg)}
+html.gsap-ready [data-reveal="rise"]{transform:translateY(56px) rotateX(-10deg)}
+html.gsap-ready [data-reveal-item]{opacity:0;transform:translateY(32px) rotateX(-8deg)}
+
+/* ==========================================================================
+   Scroll-jacked 3D scenes — hero depth-pin, treatments gallery. "Come
+   funziona" has its own WebGL scene entirely (see the Journey block below
+   and js/journey.js), so it isn't part of this GSAP-driven group.
+   Only switched on by cinema.js on capable desktops (html.scene-3d), and
+   only once GSAP has confirmed it will drive every frame. Everywhere else
+   (mobile, touch, small windows, reduced motion, no JS/CDN) these elements
+   stay in plain document flow exactly as css/cinema.css defines them.
+   ========================================================================== */
+
+/* Hero: pins while the image tilts away in 3D and the copy lifts toward camera.
+   justify-content:flex-start (not center) is deliberate: centering inside a
+   *fixed*-height box (unlike the min-height it uses when not armed) means
+   tall copy on a short viewport centers right up into the fixed header —
+   confirmed this actually happened at 1366x768. Anchoring from the top with
+   fixed padding clears the header on any viewport, short or tall. */
+html.scene-3d .hero-scene{height:130vh}
+html.scene-3d .hero{position:sticky;top:0;height:100svh;min-height:0;justify-content:flex-start}
+html.scene-3d .hero-content{padding-top:150px}
+/* The trust bar's -64px pull-up is tuned for the non-armed layout, where the
+   hero ends exactly where its content does. In armed mode the hero is a
+   pinned scene fading out over its own scrub timeline — its visual "end"
+   and the trust bar's negative margin don't line up precisely enough to
+   guarantee no overlap, so give it a clean gap instead. */
+html.scene-3d .trust-bar{margin-top:32px}
+html.scene-3d .hero-media img{animation:none;will-change:transform}
+
+/* Treatments: pins while the row of cards scroll-jacks horizontally */
+html.scene-3d .treatments-rail{width:100%;margin-inline:0}
+html.scene-3d .treatments-stage{height:170vh}
+html.scene-3d .treatments-inner{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;perspective:1500px}
+html.scene-3d .treatments-track{display:flex;flex-wrap:nowrap;gap:34px;margin-top:0;padding:0 8vw;width:max-content;perspective:none;will-change:transform}
+html.scene-3d .treatment-card{width:min(360px,72vw);flex:none}
+html.scene-3d .treatment-card:nth-child(odd){transform:rotateY(-3deg)}
+html.scene-3d .treatment-card:nth-child(even){transform:rotateY(3deg)}
+
+/* -- Custom cursor (desktop pointer only) -- */
+.cine-cursor{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--gold-soft);z-index:600;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s var(--ease),height .25s var(--ease),opacity .25s var(--ease),background-color .25s var(--ease)}
+.cine-cursor.is-active{width:44px;height:44px;background:transparent;border:1px solid var(--gold-soft)}
+.cine-cursor.is-hidden{opacity:0}
+@media(hover:none),(pointer:coarse){.cine-cursor{display:none}}
+
+.tilt{will-change:transform}
+
+/* -- Reduced motion: force everything visible, kill decorative animation -- */
+html.motion-reduced #preloader,
+html.motion-reduced .grain{display:none}
+html.motion-reduced .word-inner,
+html.motion-reduced [data-reveal],
+html.motion-reduced [data-reveal-item],
+html.motion-reduced .hero-copy .eyebrow,
+html.motion-reduced .hero-copy .hero-text,
+html.motion-reduced .hero-copy .check-list li,
+html.motion-reduced .hero-copy .hero-actions,
+html.motion-reduced .scroll-cue,
+html.motion-reduced .trust-bar .trust-item{opacity:1!important;transform:none!important}

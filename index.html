@@ -36,14 +36,20 @@
   <meta property="og:image" content="https://sorrisoalbania.com/assets/images/og-cover.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sorrisoalbania.com/">
-<meta property="og:site_name" content="Sorriso Albania">
-<meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Sorriso Albania">
+  <meta property="og:locale" content="it_IT">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,440;0,9..144,560;0,9..144,650;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/images/hero-vlora-couple.jpg">
+  <link rel="stylesheet" href="css/cinema.css">
+  <link rel="stylesheet" href="css/cinema-motion.css">
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -60,6 +66,16 @@
 <body>
   <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 
+  <div id="preloader" aria-hidden="true">
+    <svg viewBox="0 0 64 34" role="img" aria-hidden="true">
+      <path d="M4 3c12-9 22-8 31 0 9-8 19-9 31 0" style="visibility:hidden"></path>
+      <path d="M6 8c11 9 15 20 26 20s15-11 26-20"></path>
+    </svg>
+    <p class="preloader-label">Sorriso Albania</p>
+  </div>
+
+  <div class="scroll-progress"><div class="scroll-progress__bar"></div></div>
+
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="#top" class="brand" aria-label="Sorriso Albania">
@@ -74,6 +90,7 @@
       <nav id="mainNav" class="main-nav" aria-label="Navigazione principale">
         <a href="#come-funziona">Come funziona</a>
         <a href="#trattamenti">Trattamenti</a>
+        <a href="#risultati">Risultati</a>
         <a href="#perche-albania">Perché l’Albania</a>
         <a href="#servizi">Servizi</a>
         <a href="#faq">FAQ</a>
@@ -87,12 +104,26 @@
   </header>
 
   <main id="contenuto">
-    <section id="top" class="hero">
-      <div class="hero-overlay"></div>
+    <section id="top" class="hero-scene">
+    <div class="hero">
+      <div class="hero-media"><img src="assets/images/hero-vlora-couple.jpg" alt="Coppia italiana sorridente sul lungomare di Valona, Albania" fetchpriority="high"></div>
+      <div class="hero-scrim"></div>
+      <div class="grain"></div>
       <div class="container hero-content">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Assistenza in italiano</p>
-          <h1>Turismo dentale in Albania <span>con assistenza in italiano</span></h1>
+        <div class="hero-copy">
+          <p class="eyebrow">Assistenza in italiano · dal 2015</p>
+          <h1 data-split>
+            <span class="word"><span class="word-inner">Il</span></span>
+            <span class="word"><span class="word-inner">tuo</span></span>
+            <span class="word"><span class="word-inner">sorriso</span></span>
+            <span class="word"><span class="word-inner">merita</span></span>
+            <span class="word"><span class="word-inner">un</span></span>
+            <span class="word"><span class="word-inner"><em>viaggio</em></span></span><br>
+            <span class="word"><span class="word-inner">turismo</span></span>
+            <span class="word"><span class="word-inner">dentale</span></span>
+            <span class="word"><span class="word-inner">in</span></span>
+            <span class="word"><span class="word-inner">Albania</span></span>
+          </h1>
           <p class="hero-text">Ti aiutiamo a trovare la soluzione dentale più adatta alle tue esigenze in Albania, con assistenza in italiano durante ogni fase del percorso.</p>
           <ul class="check-list">
             <li>Assistenza gratuita in lingua italiana</li>
@@ -106,29 +137,74 @@
           </div>
         </div>
       </div>
+      <div class="scroll-cue"><span></span>Scorri</div>
+    </div>
     </section>
 
     <section class="trust-bar">
       <div class="container trust-grid">
-        <article class="trust-item reveal"><div class="trust-icon">🛡️</div><div><h3>Strutture selezionate</h3><p>Collaboriamo con professionisti e strutture valutate secondo criteri di qualità.</p></div></article>
-        <article class="trust-item reveal delay-1"><div class="trust-icon">🧑‍💼</div><div><h3>Consulente in italiano</h3><p>Un referente dedicato ti accompagna durante il percorso.</p></div></article>
-        <article class="trust-item reveal delay-2"><div class="trust-icon">✈️</div><div><h3>Assistenza al viaggio</h3><p>Supporto per organizzare voli, trasferimenti e soggiorno.</p></div></article>
-        <article class="trust-item reveal delay-3"><div class="trust-icon">♡</div><div><h3>Cura e attenzione</h3><p>Le tue esigenze e la tua sicurezza vengono prima di tutto.</p></div></article>
+        <article class="trust-item"><div class="trust-icon">🛡️</div><div><h3>Strutture selezionate</h3><p>Collaboriamo con professionisti e strutture valutate secondo criteri di qualità.</p></div></article>
+        <article class="trust-item"><div class="trust-icon">🧑‍💼</div><div><h3>Consulente in italiano</h3><p>Un referente dedicato ti accompagna durante il percorso.</p></div></article>
+        <article class="trust-item"><div class="trust-icon">✈️</div><div><h3>Assistenza al viaggio</h3><p>Supporto per organizzare voli, trasferimenti e soggiorno.</p></div></article>
+        <article class="trust-item"><div class="trust-icon">♡</div><div><h3>Cura e attenzione</h3><p>Le tue esigenze e la tua sicurezza vengono prima di tutto.</p></div></article>
       </div>
     </section>
 
-    <section id="come-funziona" class="section">
+    <section id="come-funziona" class="section journey-section">
       <div class="container">
-        <header class="section-heading centered reveal">
-          <p class="eyebrow">Percorso semplice</p>
+        <header class="section-heading centered" data-reveal="rise">
+          <p class="eyebrow">Il tuo percorso</p>
           <h2>Come funziona</h2>
-          <p>Un percorso chiaro, organizzato e assistito in ogni fase.</p>
+          <p>Scorri per seguire il percorso, passo dopo passo, dalla richiesta al tuo nuovo sorriso.</p>
         </header>
-        <div class="steps-grid">
-          <article class="card step-card reveal"><span class="number">1</span><div class="icon-box">📋</div><h3>Invia la tua richiesta</h3><p>Compila il modulo e allega, se disponibile, la documentazione utile.</p></article>
-          <article class="card step-card reveal delay-1"><span class="number">2</span><div class="icon-box">🔎</div><h3>Ricevi una prima valutazione</h3><p>Analizziamo le tue esigenze e prepariamo una proposta orientativa.</p></article>
-          <article class="card step-card reveal delay-2"><span class="number">3</span><div class="icon-box">💬</div><h3>Parla con un consulente</h3><p>Un referente in italiano ti spiega il percorso e i prossimi passaggi.</p></article>
-          <article class="card step-card reveal delay-3"><span class="number">4</span><div class="icon-box">🧳</div><h3>Organizza il viaggio</h3><p>Ti assistiamo con soggiorno, trasferimenti e appuntamenti.</p></article>
+      </div>
+
+      <!-- WebGL flythrough: progressive enhancement, engaged only on capable
+           desktops with WebGL (see js/journey.js). Hidden by default so the
+           flat grid below is what mobile/touch/reduced-motion/no-JS/no-WebGL
+           visitors — and search engines — actually get.
+
+           Five story beats, each one BEAT_N block below (captions, video,
+           fallback card) sharing the same index — swap copy/video per beat
+           by editing all three same-numbered pieces together. -->
+      <div class="journey-rail" id="journeyRail" hidden>
+        <div class="journey-stage" id="journeyStage">
+          <canvas id="journeyCanvas"></canvas>
+          <div class="journey-captions">
+            <!-- BEAT 0 — La richiesta -->
+            <div class="journey-caption" data-scene="0"><p class="eyebrow">Passo 1 · La richiesta</p><h3>Scrivici cosa ti serve</h3><p>Compila il modulo o scrivici su WhatsApp: due minuti, nessun impegno.</p></div>
+            <!-- BEAT 1 — La risposta -->
+            <div class="journey-caption" data-scene="1"><p class="eyebrow">Passo 2 · La risposta</p><h3>Ti richiamiamo con una proposta</h3><p>Un consulente in italiano ti presenta la valutazione e risponde a ogni domanda.</p></div>
+            <!-- BEAT 2 — Il viaggio -->
+            <div class="journey-caption" data-scene="2"><p class="eyebrow">Passo 3 · Il viaggio</p><h3>Al resto pensiamo noi</h3><p>Voli, trasferimenti e alloggio: organizziamo ogni dettaglio del tuo viaggio.</p></div>
+            <!-- BEAT 3 — La cura -->
+            <div class="journey-caption" data-scene="3"><p class="eyebrow">Passo 4 · La cura</p><h3>Il trattamento, al tuo fianco</h3><p>Un team che parla la tua lingua ti segue in ogni fase, in strutture moderne e accoglienti.</p></div>
+            <!-- BEAT 4 — Il risultato -->
+            <div class="journey-caption" data-scene="4"><p class="eyebrow">Passo 5 · Il risultato</p><h3>Il tuo nuovo sorriso</h3><p>Torni a casa con il sorriso che aspettavi. Restiamo in contatto anche dopo.</p></div>
+          </div>
+          <div class="journey-progress" id="journeyProgress" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+          <div class="journey-hint" id="journeyHint">Scorri per continuare</div>
+        </div>
+      </div>
+      <!-- One <video> per beat, same order as the captions above (jv0 = beat 0, etc).
+           Muted+loop+playsinline so autoplay is always allowed; nothing in the
+           section depends on the video actually playing — js/journey.js still
+           renders the frame, glow and camera motion even if a clip fails to load. -->
+      <video class="journey-source-video" id="jv0" muted loop playsinline preload="none"><source src="assets/video/percorso-1.webm" type="video/webm"><source src="assets/video/percorso-1.mp4" type="video/mp4"></video>
+      <video class="journey-source-video" id="jv1" muted loop playsinline preload="none"><source src="assets/video/percorso-3.webm" type="video/webm"><source src="assets/video/percorso-3.mp4" type="video/mp4"></video>
+      <video class="journey-source-video" id="jv2" muted loop playsinline preload="none"><source src="assets/video/percorso-4.webm" type="video/webm"><source src="assets/video/percorso-4.mp4" type="video/mp4"></video>
+      <video class="journey-source-video" id="jv3" muted loop playsinline preload="none"><source src="assets/video/percorso-5.webm" type="video/webm"><source src="assets/video/percorso-5.mp4" type="video/mp4"></video>
+      <video class="journey-source-video" id="jv4" muted loop playsinline preload="none"><source src="assets/video/percorso-6.webm" type="video/webm"><source src="assets/video/percorso-6.mp4" type="video/mp4"></video>
+
+      <div class="container">
+        <!-- Flat fallback: mobile/touch/reduced-motion/no-JS/no-WebGL, and the
+             accessible/SEO-visible copy of record. Same 5 beats, same order. -->
+        <div class="steps-grid" id="stepsGridFallback" data-reveal-group>
+          <article class="card step-card" data-reveal-item><span class="number">1</span><div class="icon-box">📋</div><h3>La richiesta</h3><p>Compila il modulo o scrivici su WhatsApp: due minuti, nessun impegno.</p></article>
+          <article class="card step-card" data-reveal-item><span class="number">2</span><div class="icon-box">💬</div><h3>La risposta</h3><p>Un consulente in italiano ti richiama con una proposta e risponde a ogni domanda.</p></article>
+          <article class="card step-card" data-reveal-item><span class="number">3</span><div class="icon-box">🧳</div><h3>Il viaggio</h3><p>Organizziamo voli, trasferimenti e alloggio in ogni dettaglio.</p></article>
+          <article class="card step-card" data-reveal-item><span class="number">4</span><div class="icon-box">🦷</div><h3>La cura</h3><p>Un team che parla la tua lingua ti segue in ogni fase del trattamento.</p></article>
+          <article class="card step-card" data-reveal-item><span class="number">5</span><div class="icon-box">😁</div><h3>Il risultato</h3><p>Torni a casa con il sorriso che aspettavi. Restiamo in contatto anche dopo.</p></article>
         </div>
         <p class="fine-print centered">La valutazione definitiva e il piano clinico possono essere confermati solo dopo la visita del professionista sanitario.</p>
       </div>
@@ -136,27 +212,34 @@
 
     <section id="trattamenti" class="section section-soft">
       <div class="container">
-        <header class="section-heading centered reveal">
+        <header class="section-heading centered" data-reveal="rise">
           <p class="eyebrow">Soluzioni personalizzate</p>
           <h2>Trattamenti dentali in Albania più richiesti</h2>
           <p>Ti aiutiamo a individuare la soluzione più adatta alle tue necessità.</p>
         </header>
-        <div class="treatments-grid">
-          <article class="card treatment-card reveal"><div class="icon-box">🦷</div><h3>Impianti dentali in Albania</h3><p>Soluzioni implantari valutate in base al singolo caso.</p><a href="#consulenza">Richiedi informazioni →</a></article>
-          <article class="card treatment-card reveal delay-1"><div class="icon-box">◉</div><h3>Corone e ponti</h3><p>Ripristino della funzionalità e dell’estetica del sorriso.</p><a href="#consulenza">Richiedi informazioni →</a></article>
-          <article class="card treatment-card reveal delay-2"><div class="icon-box">✨</div><h3>Faccette dentali</h3><p>Percorsi estetici personalizzati e pianificati con attenzione.</p><a href="#consulenza">Richiedi informazioni →</a></article>
-          <article class="card treatment-card reveal"><div class="icon-box">⚕️</div><h3>Riabilitazione dentale completa</h3><p>Soluzioni coordinate per esigenze più complesse.</p><a href="#consulenza">Richiedi informazioni →</a></article>
-          <article class="card treatment-card reveal delay-1"><div class="icon-box">😁</div><h3>Protesi dentali</h3><p>Protesi fisse o mobili realizzate su misura.</p><a href="#consulenza">Richiedi informazioni →</a></article>
-          <article class="card treatment-card reveal delay-2"><div class="icon-box">✦</div><h3>Igiene ed estetica</h3><p>Prevenzione e trattamenti per valorizzare il sorriso.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+      </div>
+      <div class="treatments-rail">
+        <div class="treatments-stage">
+          <div class="treatments-inner">
+            <div class="treatments-track" data-reveal-group>
+              <article class="card treatment-card tilt" data-reveal-item><div class="icon-box">🦷</div><h3>Impianti dentali in Albania</h3><p>Soluzioni implantari valutate in base al singolo caso.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+              <article class="card treatment-card tilt" data-reveal-item><div class="icon-box">◉</div><h3>Corone e ponti</h3><p>Ripristino della funzionalità e dell’estetica del sorriso.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+              <article class="card treatment-card tilt" data-reveal-item><div class="icon-box">✨</div><h3>Faccette dentali</h3><p>Percorsi estetici personalizzati e pianificati con attenzione.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+              <article class="card treatment-card tilt" data-reveal-item><div class="icon-box">⚕️</div><h3>Riabilitazione dentale completa</h3><p>Soluzioni coordinate per esigenze più complesse.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+              <article class="card treatment-card tilt" data-reveal-item><div class="icon-box">😁</div><h3>Protesi dentali</h3><p>Protesi fisse o mobili realizzate su misura.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+              <article class="card treatment-card tilt" data-reveal-item><div class="icon-box">✦</div><h3>Igiene ed estetica</h3><p>Prevenzione e trattamenti per valorizzare il sorriso.</p><a href="#consulenza">Richiedi informazioni →</a></article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="pricing-feature">
-      <div class="pricing-bg" role="img" aria-label="Vista panoramica di Valona con il lungomare e il mare"></div>
+      <div class="pricing-bg" role="img" aria-label="Vista panoramica di Valona con il lungomare e il mare" data-parallax="9"></div>
       <div class="pricing-gradient"></div>
+      <div class="grain"></div>
       <div class="container pricing-content">
-        <div class="pricing-panel reveal">
+        <div class="pricing-panel" data-reveal="left">
           <p class="eyebrow eyebrow-light">Trasparenza</p>
           <h2>Qualità eccellente, costi più accessibili</h2>
           <p class="pricing-intro">Esempi indicativi di costi medi confrontati tra Italia e Albania.</p>
@@ -177,43 +260,128 @@
       </div>
     </section>
 
+    <!-- Risultati pazienti: real before/after case photos supplied by the
+         client, one <article> per case. Swap/add cases by dropping a new
+         image in assets/images/results/ and copying an <article> block. -->
+    <section id="risultati" class="section">
+      <div class="container">
+        <header class="section-heading centered" data-reveal="rise">
+          <p class="eyebrow">Risultati reali</p>
+          <h2>I sorrisi dei nostri pazienti</h2>
+          <p>Una selezione di casi seguiti dal nostro team, condivisi con il consenso dei pazienti.</p>
+        </header>
+        <div class="results-grid" data-reveal-group>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-01-impianti-full-arch.jpg" aria-label="Ingrandisci: riabilitazione completa su impianti">
+              <img src="assets/images/results/risultato-01-impianti-full-arch.jpg" alt="Prima e dopo: riabilitazione completa su impianti dentali, doppia arcata" loading="lazy" width="1122" height="1402">
+            </button>
+            <h3>Riabilitazione completa su impianti</h3>
+            <p>Dalla fase chirurgica al sorriso finale, su entrambe le arcate.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-02-faccette.jpg" aria-label="Ingrandisci: faccette in ceramica">
+              <img src="assets/images/results/risultato-02-faccette.jpg" alt="Prima e dopo: faccette dentali in ceramica" loading="lazy" width="1122" height="1402">
+            </button>
+            <h3>Faccette in ceramica</h3>
+            <p>Forma e colore naturali, pensati per il viso del paziente.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-03-faccette-diastema.jpg" aria-label="Ingrandisci: faccette e chiusura del diastema">
+              <img src="assets/images/results/risultato-03-faccette-diastema.jpg" alt="Prima e dopo: faccette dentali con chiusura del diastema" loading="lazy" width="941" height="1672">
+            </button>
+            <h3>Faccette e chiusura del diastema</h3>
+            <p>Lo spazio tra gli incisivi chiuso con un risultato armonico.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-04-faccette.jpg" aria-label="Ingrandisci: faccette in ceramica">
+              <img src="assets/images/results/risultato-04-faccette.jpg" alt="Prima e dopo: faccette dentali in ceramica, primo piano" loading="lazy" width="1122" height="1402">
+            </button>
+            <h3>Faccette in ceramica</h3>
+            <p>Sorriso rinnovato in poche sedute.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-05-riabilitazione.jpg" aria-label="Ingrandisci: riabilitazione completa">
+              <img src="assets/images/results/risultato-05-riabilitazione.jpg" alt="Prima e dopo: riabilitazione completa di denti fratturati e compromessi" loading="lazy" width="941" height="1672">
+            </button>
+            <h3>Riabilitazione completa</h3>
+            <p>Denti fratturati e compromessi sostituiti con un’arcata fissa.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-06-radiografia.jpg" aria-label="Ingrandisci: controllo radiografico post-implantare">
+              <img src="assets/images/results/risultato-06-radiografia.jpg" alt="Radiografia panoramica di controllo dopo l’inserimento degli impianti" loading="lazy" width="1200" height="684">
+            </button>
+            <h3>Controllo radiografico post-implantare</h3>
+            <p>Verifica del corretto posizionamento degli impianti su entrambe le arcate.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-07-faccette.jpg" aria-label="Ingrandisci: faccette in ceramica">
+              <img src="assets/images/results/risultato-07-faccette.jpg" alt="Prima e dopo: faccette dentali in ceramica, primo piano sorriso" loading="lazy" width="1200" height="800">
+            </button>
+            <h3>Faccette in ceramica</h3>
+            <p>Un sorriso più luminoso e uniforme.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-08-faccette-diastema.jpg" aria-label="Ingrandisci: faccette e chiusura del diastema">
+              <img src="assets/images/results/risultato-08-faccette-diastema.jpg" alt="Prima e dopo: faccette dentali con chiusura del diastema, primo piano" loading="lazy" width="1200" height="800">
+            </button>
+            <h3>Faccette e chiusura del diastema</h3>
+            <p>Denti scheggiati e spaziati trasformati in un sorriso naturale.</p>
+          </article>
+          <article class="card result-card" data-reveal-item>
+            <button class="result-image" type="button" data-lightbox-src="assets/images/results/risultato-09-riabilitazione.jpg" aria-label="Ingrandisci: riabilitazione completa">
+              <img src="assets/images/results/risultato-09-riabilitazione.jpg" alt="Prima e dopo: riabilitazione completa dell’arcata anteriore" loading="lazy" width="1200" height="800">
+            </button>
+            <h3>Riabilitazione completa</h3>
+            <p>Denti anteriori compromessi ricostruiti con un risultato naturale.</p>
+          </article>
+        </div>
+        <p class="fine-print centered results-consent">Fotografie di pazienti reali, pubblicate con il loro consenso. I risultati individuali possono variare in base al caso clinico.</p>
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Chiudi">✕</button>
+      <img id="lightboxImg" src="" alt="">
+    </div>
+
     <section id="perche-albania" class="section section-soft">
       <div class="container">
-        <header class="section-heading centered reveal">
+        <header class="section-heading centered" data-reveal="rise">
           <p class="eyebrow">Una scelta pratica</p>
           <h2>Perché scegliere l’Albania</h2>
         </header>
-        <div class="benefit-grid">
-          <article class="card reveal"><div class="icon-box">✈️</div><h3>Vicinanza all’Italia</h3><p>Collegamenti frequenti e tempi di viaggio ridotti.</p></article>
-          <article class="card reveal delay-1"><div class="icon-box">💬</div><h3>Assistenza in italiano</h3><p>Comunicazione semplice con un referente dedicato.</p></article>
-          <article class="card reveal delay-2"><div class="icon-box">€</div><h3>Costi competitivi</h3><p>Possibilità di costi più contenuti, in base al caso.</p></article>
-          <article class="card reveal delay-3"><div class="icon-box">📅</div><h3>Percorso organizzato</h3><p>Supporto per appuntamenti, trasferimenti e soggiorno.</p></article>
+        <div class="benefit-grid" data-reveal-group>
+          <article class="card tilt" data-reveal-item><div class="icon-box">✈️</div><h3>Vicinanza all’Italia</h3><p>Collegamenti frequenti e tempi di viaggio ridotti.</p></article>
+          <article class="card tilt" data-reveal-item><div class="icon-box">💬</div><h3>Assistenza in italiano</h3><p>Comunicazione semplice con un referente dedicato.</p></article>
+          <article class="card tilt" data-reveal-item><div class="icon-box">€</div><h3>Costi competitivi</h3><p>Possibilità di costi più contenuti, in base al caso.</p></article>
+          <article class="card tilt" data-reveal-item><div class="icon-box">📅</div><h3>Percorso organizzato</h3><p>Supporto per appuntamenti, trasferimenti e soggiorno.</p></article>
         </div>
       </div>
     </section>
 
     <section id="servizi" class="section">
       <div class="container">
-        <header class="section-heading centered reveal">
+        <header class="section-heading centered" data-reveal="rise">
           <p class="eyebrow">Supporto completo</p>
           <h2>Ti accompagniamo in ogni fase</h2>
         </header>
-        <div class="services-grid">
-          <div class="reveal">✓ Raccolta iniziale delle informazioni</div>
-          <div class="reveal delay-1">✓ Valutazione della documentazione</div>
-          <div class="reveal delay-2">✓ Ricerca della soluzione più adatta</div>
-          <div class="reveal delay-3">✓ Comunicazione in italiano</div>
-          <div class="reveal">✓ Coordinamento degli appuntamenti</div>
-          <div class="reveal delay-1">✓ Supporto per viaggio e soggiorno</div>
-          <div class="reveal delay-2">✓ Assistenza durante la permanenza</div>
-          <div class="reveal delay-3">✓ Supporto informativo dopo il rientro</div>
+        <div class="services-grid" data-reveal-group>
+          <div data-reveal-item>✓ Raccolta iniziale delle informazioni</div>
+          <div data-reveal-item>✓ Valutazione della documentazione</div>
+          <div data-reveal-item>✓ Ricerca della soluzione più adatta</div>
+          <div data-reveal-item>✓ Comunicazione in italiano</div>
+          <div data-reveal-item>✓ Coordinamento degli appuntamenti</div>
+          <div data-reveal-item>✓ Supporto per viaggio e soggiorno</div>
+          <div data-reveal-item>✓ Assistenza durante la permanenza</div>
+          <div data-reveal-item>✓ Supporto informativo dopo il rientro</div>
         </div>
-        <div class="role-box reveal"><strong>Il nostro ruolo</strong><p>Siamo un servizio di intermediazione e assistenza. Non effettuiamo diagnosi, non prescriviamo trattamenti e non sostituiamo il parere di un odontoiatra qualificato.</p></div>
+        <div class="role-box" data-reveal="rise"><strong>Il nostro ruolo</strong><p>Siamo un servizio di intermediazione e assistenza. Non effettuiamo diagnosi, non prescriviamo trattamenti e non sostituiamo il parere di un odontoiatra qualificato.</p></div>
       </div>
     </section>
-<section class="section contact-section">
+
+    <section class="section contact-section">
       <div class="container contact-grid">
-        <div id="faq" class="faq-column reveal">
+        <div id="faq" class="faq-column" data-reveal="rise">
           <p class="eyebrow">Chiarezza</p>
           <h2>Domande frequenti</h2>
           <div class="faq-list">
@@ -259,7 +427,7 @@ Il nostro obiettivo non è soltanto offrirti un nuovo sorriso, ma garantirti qua
           </div>
         </div>
 
-        <div id="consulenza" class="form-card reveal delay-1">
+        <div id="consulenza" class="form-card" data-reveal="right">
           <p class="eyebrow">Contatto rapido</p>
           <h2>Richiedi la tua consulenza gratuita</h2>
           <p>Compila il modulo. Ti ricontatteremo per comprendere le tue esigenze.</p>
@@ -309,6 +477,7 @@ Il nostro obiettivo non è soltanto offrirti un nuovo sorriso, ma garantirti qua
   </main>
 
   <footer id="contatti">
+    <div class="grain"></div>
     <div class="container footer-grid">
       <div><img class="footer-logo" src="assets/logos/logo.svg" alt="Sorriso Albania"><p>Il tuo punto di riferimento per organizzare il percorso dentale in Albania.</p></div>
       <div><h3>Link utili</h3><a href="#come-funziona">Come funziona</a><a href="#trattamenti">Trattamenti</a><a href="#servizi">Servizi</a><a href="#faq">FAQ</a></div>
@@ -343,5 +512,14 @@ Il nostro obiettivo non è soltanto offrirti un nuovo sorriso, ma garantirti qua
   <script src="js/app.js"></script>
   <script src="js/form.js"></script>
   <script src="js/cookie.js"></script>
+
+  <!-- Cinematic 3D-scroll layer: pure progressive enhancement, see js/cinema.js -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/cinema.js" defer></script>
+
+  <!-- "Come funziona" WebGL journey: pure progressive enhancement, see js/journey.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js" defer></script>
+  <script src="js/journey.js" defer></script>
 </body>
 </html>

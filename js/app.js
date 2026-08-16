@@ -51,3 +51,13 @@ function updateCarousel(){if(!track)return;const count=visibleCount(),max=Math.m
 document.getElementById("reviewPrev")?.addEventListener("click",()=>{reviewIndex=Math.max(0,reviewIndex-1);updateCarousel();});
 document.getElementById("reviewNext")?.addEventListener("click",()=>{reviewIndex=Math.min(Math.max(0,reviews.length-visibleCount()),reviewIndex+1);updateCarousel();});
 addEventListener("resize",updateCarousel);renderReviews();
+
+const lightbox=document.getElementById("lightbox"),lightboxImg=document.getElementById("lightboxImg");
+function openLightbox(src,alt){if(!lightbox||!lightboxImg)return;lightboxImg.src=src;lightboxImg.alt=alt||"";lightbox.classList.add("is-open");}
+function closeLightbox(){if(!lightbox)return;lightbox.classList.remove("is-open");lightboxImg.src="";}
+document.querySelectorAll("[data-lightbox-src]").forEach(btn=>{
+  btn.addEventListener("click",()=>openLightbox(btn.dataset.lightboxSrc,btn.querySelector("img")?.alt));
+});
+document.getElementById("lightboxClose")?.addEventListener("click",closeLightbox);
+lightbox?.addEventListener("click",e=>{if(e.target===lightbox)closeLightbox();});
+addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox();});
