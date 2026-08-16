@@ -177,11 +177,17 @@
   <div id="waWidget" class="wa-widget">
     <div id="waBubble" class="wa-bubble" role="dialog" aria-label="Messaggio WhatsApp">
       <button id="waBubbleClose" class="wa-bubble-close" aria-label="Chiudi">×</button>
-      <p class="wa-bubble-greeting">Ciao! Hai domande sul tuo preventivo?</p>
-      <p class="wa-bubble-sub">Scrivici, rispondiamo subito 💬</p>
-      <a id="waBubbleOpen" class="wa-bubble-open" href="#" target="_blank" rel="noopener">Apri chat</a>
+      <div id="waTyping" class="wa-typing"><span></span><span></span><span></span></div>
+      <div id="waBubbleContent" class="wa-bubble-content">
+        <p class="wa-bubble-greeting">Ciao! Hai domande sul tuo preventivo?</p>
+        <p class="wa-bubble-sub">Scrivici, rispondiamo subito 💬</p>
+        <a id="waBubbleOpen" class="wa-bubble-open" href="#" target="_blank" rel="noopener">Apri chat</a>
+      </div>
     </div>
-    <a id="floatingWhatsapp" class="floating-whatsapp" href="#" aria-label="Contattaci su WhatsApp">💬</a>
+    <a id="floatingWhatsapp" class="floating-whatsapp" href="#" aria-label="Contattaci su WhatsApp">
+      💬
+      <span id="waBadge" class="wa-badge"></span>
+    </a>
   </div>
 
   <div id="cookieBanner" class="cookie-banner">
@@ -217,21 +223,33 @@
     // proactive WhatsApp bubble: appears once the cookie banner is out of the way
     // (already dismissed, or the moment the user dismisses it) - never both on
     // screen at once. Dismissible, never shown again this session once closed.
+    // Opens with a brief "typing..." animation before the message reveals, and
+    // a small badge on the icon hints at an unread message until then.
     const waWidget = document.getElementById("waWidget");
     const waBubbleClose = document.getElementById("waBubbleClose");
+    const waBadge = document.getElementById("waBadge");
     const cookieBannerEl = document.getElementById("cookieBanner");
 
     function bannerIsShowing() {
       return cookieBannerEl && getComputedStyle(cookieBannerEl).display !== "none";
     }
+    function hideBadge() {
+      waBadge?.classList.remove("wa-badge-visible");
+    }
     function tryShowWaBubble() {
       if (!waWidget || sessionStorage.getItem("waBubbleDismissed") || bannerIsShowing()) return;
-      waWidget.classList.add("wa-bubble-visible");
+      waWidget.classList.add("wa-bubble-visible", "wa-bubble-typing");
+      setTimeout(() => {
+        waWidget.classList.remove("wa-bubble-typing");
+        hideBadge();
+      }, 1200);
     }
     if (waWidget) {
+      waBadge?.classList.add("wa-badge-visible");
       setTimeout(tryShowWaBubble, 4000);
       document.getElementById("acceptCookies")?.addEventListener("click", () => setTimeout(tryShowWaBubble, 400));
       document.getElementById("rejectCookies")?.addEventListener("click", () => setTimeout(tryShowWaBubble, 400));
+      document.getElementById("floatingWhatsapp")?.addEventListener("click", hideBadge);
     }
     function dismissWaBubble() {
       waWidget?.classList.remove("wa-bubble-visible");

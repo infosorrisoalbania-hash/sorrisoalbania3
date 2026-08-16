@@ -66,6 +66,17 @@ footer{background:linear-gradient(135deg,#082D55,#051F3C);color:#fff;padding:56p
 .wa-bubble-greeting{margin:0;font-weight:800;color:var(--navy);font-size:15px;padding-right:14px}
 .wa-bubble-sub{margin:6px 0 12px;font-size:13px;color:var(--text)}
 .wa-bubble-open{display:block;text-align:center;background:var(--green);color:#fff;border-radius:10px;padding:10px;font-weight:800;font-size:14px}
+.wa-bubble-content{display:none}
+.wa-bubble-visible:not(.wa-bubble-typing) .wa-bubble-content{display:block}
+.wa-typing{display:none;gap:5px;padding:6px 2px}
+.wa-bubble-typing .wa-typing{display:flex}
+.wa-typing span{width:8px;height:8px;border-radius:50%;background:var(--border);animation:wa-typing-bounce 1s infinite ease-in-out}
+.wa-typing span:nth-child(2){animation-delay:.15s}
+.wa-typing span:nth-child(3){animation-delay:.3s}
+@keyframes wa-typing-bounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.wa-badge{position:absolute;top:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:#FF3B30;border:2px solid #fff;opacity:0;transform:scale(.5);transition:opacity .25s,transform .25s}
+.wa-badge-visible{opacity:1;transform:scale(1);animation:wa-badge-pulse 1.8s infinite}
+@keyframes wa-badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,.45)}50%{box-shadow:0 0 0 6px rgba(255,59,48,0)}}
 .cookie-banner{position:fixed;left:18px;right:18px;bottom:18px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:120}.cookie-banner p{margin:0}.cookie-banner button{border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer}.cookie-banner button:last-child{background:var(--green);color:#fff}
 
 .upload-fieldset{margin:20px 0 8px;padding:18px;border:1px solid var(--border);border-radius:14px;background:#f9fcfe}.upload-fieldset legend{padding:0 8px;color:var(--navy);font-weight:800}.upload-fieldset label{margin-top:10px}.upload-fieldset small{display:block;margin-top:10px}.submit-button:disabled{opacity:.7;cursor:wait}
