@@ -87,8 +87,8 @@
             <li>Assistenza in italiano in ogni fase</li>
           </ul>
           <div class="hero-actions">
-            <a class="button button-primary" href="#consulenza">💬 Richiedi il preventivo gratuito</a>
-            <a class="button button-outline" href="tel:+355692030875">📞 Chiama +355 69 203 0875</a>
+            <a class="button button-primary" id="heroWhatsappBtn" href="#" target="_blank" rel="noopener">💬 Scrivici su WhatsApp</a>
+            <a class="button button-outline" href="#consulenza">Richiedi il preventivo via modulo</a>
           </div>
         </div>
       </div>
@@ -191,6 +191,22 @@
     document.getElementById("footerWhatsapp").href = waHref;
     document.getElementById("footerPhone").textContent = cfg.phoneNumber || "";
     document.getElementById("footerEmail").textContent = cfg.emailAddress || "";
+
+    const heroWhatsappBtn = document.getElementById("heroWhatsappBtn");
+    if (heroWhatsappBtn) heroWhatsappBtn.href = waHref;
+
+    // track which CTA path people actually take (WhatsApp vs form vs phone), read-only signal
+    function trackCtaClick(label) {
+      if (typeof window.gtag === "function") window.gtag("event", "cta_click", { cta_label: label });
+    }
+    heroWhatsappBtn?.addEventListener("click", () => trackCtaClick("hero_whatsapp"));
+    document.getElementById("floatingWhatsapp")?.addEventListener("click", () => trackCtaClick("floating_whatsapp"));
+    document.querySelectorAll('a[href="#consulenza"]').forEach(el =>
+      el.addEventListener("click", () => trackCtaClick("form_anchor"))
+    );
+    document.querySelectorAll('a[href^="tel:"]').forEach(el =>
+      el.addEventListener("click", () => trackCtaClick("phone_call"))
+    );
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add("visible"); revealObserver.unobserve(entry.target); }
     }), { threshold: .12 });
