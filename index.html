@@ -173,53 +173,44 @@
           <canvas id="journeyCanvas"></canvas>
           <div class="journey-captions">
             <!-- BEAT 0 — La richiesta -->
-            <div class="journey-caption" data-scene="0"><p class="eyebrow">Passo 1 · La richiesta</p><h3>Scrivici cosa ti serve</h3><p>Compila il modulo o scrivici su WhatsApp: due minuti, nessun impegno.</p></div>
+            <div class="journey-caption" data-scene="0"><p class="eyebrow">Passo 1 · La richiesta</p><h3>La richiesta</h3><p>Tutto inizia con un messaggio. Da casa tua, quando ti va, ci racconti la tua situazione e cosa vorresti cambiare del tuo sorriso. Nessun impegno, nessuna fretta — solo il primo passo verso qualcosa che rimandavi da tempo.</p></div>
             <!-- BEAT 1 — La risposta -->
-            <div class="journey-caption" data-scene="1"><p class="eyebrow">Passo 2 · La risposta</p><h3>Ti richiamiamo con una proposta</h3><p>Un consulente in italiano ti presenta la valutazione e risponde a ogni domanda.</p></div>
+            <div class="journey-caption" data-scene="1"><p class="eyebrow">Passo 2 · La risposta</p><h3>La risposta</h3><p>Un nostro specialista ti richiama per una consulenza video gratuita. Guardiamo insieme la tua situazione, rispondiamo a ogni dubbio e costruiamo un piano su misura, con tempi e costi chiari fin da subito — tutto in italiano.</p></div>
             <!-- BEAT 2 — Il viaggio -->
-            <div class="journey-caption" data-scene="2"><p class="eyebrow">Passo 3 · Il viaggio</p><h3>Al resto pensiamo noi</h3><p>Voli, trasferimenti e alloggio: organizziamo ogni dettaglio del tuo viaggio.</p></div>
+            <div class="journey-caption" data-scene="2"><p class="eyebrow">Passo 3 · Il viaggio</p><h3>Il viaggio</h3><p>Organizziamo noi il tuo viaggio in Albania: dal volo al trasferimento fino in clinica, dall'alloggio all'assistenza in aeroporto. Tu pensa solo a partire, al resto pensiamo noi.</p></div>
             <!-- BEAT 3 — La cura -->
-            <div class="journey-caption" data-scene="3"><p class="eyebrow">Passo 4 · La cura</p><h3>Il trattamento, al tuo fianco</h3><p>Un team che parla la tua lingua ti segue in ogni fase, in strutture moderne e accoglienti.</p></div>
+            <div class="journey-caption" data-scene="3"><p class="eyebrow">Passo 4 · La cura</p><h3>La cura</h3><p>In clinica ti aspetta un team che parla la tua lingua e uno staff medico con anni di esperienza internazionale. Ogni fase del trattamento viene seguita con la massima cura, con tecnologie all'avanguardia e la massima trasparenza su ogni passaggio.</p></div>
             <!-- BEAT 4 — Il risultato -->
-            <div class="journey-caption" data-scene="4"><p class="eyebrow">Passo 5 · Il risultato</p><h3>Il tuo nuovo sorriso</h3><p>Torni a casa con il sorriso che aspettavi. Restiamo in contatto anche dopo.</p></div>
+            <div class="journey-caption" data-scene="4"><p class="eyebrow">Passo 5 · Il risultato</p><h3>Il risultato</h3><p>Torni a casa con il sorriso che desideravi da anni — e con la sicurezza di aver scelto un percorso serio, seguito passo dopo passo. Il cambiamento non è solo estetico: è la fiducia che ritrovi ogni volta che sorridi.</p></div>
           </div>
           <div class="journey-progress" id="journeyProgress" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
           <div class="journey-hint" id="journeyHint">Scorri per continuare</div>
         </div>
       </div>
-      <!-- One <video> per beat, same order as the captions above (jv0 = beat 0, etc).
-           Muted+loop+playsinline so autoplay is always allowed; nothing in the
-           section depends on the video actually playing — js/journey.js still
-           renders the frame, glow and camera motion even if a clip fails to load. -->
-      <video class="journey-source-video" id="jv0" muted loop playsinline preload="none"><source src="assets/video/percorso-1.webm" type="video/webm"><source src="assets/video/percorso-1.mp4" type="video/mp4"></video>
-      <video class="journey-source-video" id="jv1" muted loop playsinline preload="none"><source src="assets/video/percorso-3.webm" type="video/webm"><source src="assets/video/percorso-3.mp4" type="video/mp4"></video>
-      <video class="journey-source-video" id="jv2" muted loop playsinline preload="none"><source src="assets/video/percorso-4.webm" type="video/webm"><source src="assets/video/percorso-4.mp4" type="video/mp4"></video>
-      <video class="journey-source-video" id="jv3" muted loop playsinline preload="none"><source src="assets/video/percorso-5.webm" type="video/webm"><source src="assets/video/percorso-5.mp4" type="video/mp4"></video>
-      <video class="journey-source-video" id="jv4" muted loop playsinline preload="none"><source src="assets/video/percorso-6.webm" type="video/webm"><source src="assets/video/percorso-6.mp4" type="video/mp4"></video>
 
       <div class="container">
         <!-- Flat fallback: mobile/touch/reduced-motion/no-JS/no-WebGL, and the
              accessible/SEO-visible copy of record. Same 5 beats, same order. -->
         <div class="steps-grid" id="stepsGridFallback" data-reveal-group>
           <article class="card step-card" data-reveal-item>
-            <div class="step-media"><span class="number">1</span><video muted loop playsinline autoplay preload="metadata"><source src="assets/video/percorso-1.webm" type="video/webm"><source src="assets/video/percorso-1.mp4" type="video/mp4"></video></div>
-            <div class="step-body"><h3>La richiesta</h3><p>Compila il modulo o scrivici su WhatsApp: due minuti, nessun impegno.</p></div>
+            <div class="step-media"><span class="number">1</span><img src="assets/images/journey-photos/scene-1-richiesta.jpg" alt="Donna seduta sul divano di casa, la sera, mentre scrive da smartphone" loading="lazy" width="1200" height="960"></div>
+            <div class="step-body"><h3>La richiesta</h3><p>Tutto inizia con un messaggio. Da casa tua, quando ti va, ci racconti la tua situazione e cosa vorresti cambiare del tuo sorriso. Nessun impegno, nessuna fretta — solo il primo passo verso qualcosa che rimandavi da tempo.</p></div>
           </article>
           <article class="card step-card" data-reveal-item>
-            <div class="step-media"><span class="number">2</span><video muted loop playsinline autoplay preload="metadata"><source src="assets/video/percorso-3.webm" type="video/webm"><source src="assets/video/percorso-3.mp4" type="video/mp4"></video></div>
-            <div class="step-body"><h3>La risposta</h3><p>Un consulente in italiano ti richiama con una proposta e risponde a ogni domanda.</p></div>
+            <div class="step-media"><span class="number">2</span><img src="assets/images/journey-photos/scene-2-risposta.jpg" alt="Donna al telefono davanti al computer durante una consulenza video" loading="lazy" width="1200" height="960"></div>
+            <div class="step-body"><h3>La risposta</h3><p>Un nostro specialista ti richiama per una consulenza video gratuita. Guardiamo insieme la tua situazione, rispondiamo a ogni dubbio e costruiamo un piano su misura, con tempi e costi chiari fin da subito — tutto in italiano.</p></div>
           </article>
           <article class="card step-card" data-reveal-item>
-            <div class="step-media"><span class="number">3</span><video muted loop playsinline autoplay preload="metadata"><source src="assets/video/percorso-4.webm" type="video/webm"><source src="assets/video/percorso-4.mp4" type="video/mp4"></video></div>
-            <div class="step-body"><h3>Il viaggio</h3><p>Organizziamo voli, trasferimenti e alloggio in ogni dettaglio.</p></div>
+            <div class="step-media"><span class="number">3</span><img src="assets/images/journey-photos/scene-3-viaggio.jpg" alt="Donna con valigia in aeroporto, tabellone partenze sullo sfondo" loading="lazy" width="1200" height="960"></div>
+            <div class="step-body"><h3>Il viaggio</h3><p>Organizziamo noi il tuo viaggio in Albania: dal volo al trasferimento fino in clinica, dall'alloggio all'assistenza in aeroporto. Tu pensa solo a partire, al resto pensiamo noi.</p></div>
           </article>
           <article class="card step-card" data-reveal-item>
-            <div class="step-media"><span class="number">4</span><video muted loop playsinline autoplay preload="metadata"><source src="assets/video/percorso-5.webm" type="video/webm"><source src="assets/video/percorso-5.mp4" type="video/mp4"></video></div>
-            <div class="step-body"><h3>La cura</h3><p>Un team che parla la tua lingua ti segue in ogni fase del trattamento.</p></div>
+            <div class="step-media"><span class="number">4</span><img src="assets/images/journey-photos/scene-4-cura.jpg" alt="Donna seduta in poltrona odontoiatrica durante una visita in clinica" loading="lazy" width="1200" height="900"></div>
+            <div class="step-body"><h3>La cura</h3><p>In clinica ti aspetta un team che parla la tua lingua e uno staff medico con anni di esperienza internazionale. Ogni fase del trattamento viene seguita con la massima cura, con tecnologie all'avanguardia e la massima trasparenza su ogni passaggio.</p></div>
           </article>
           <article class="card step-card" data-reveal-item>
-            <div class="step-media"><span class="number">5</span><video muted loop playsinline autoplay preload="metadata"><source src="assets/video/percorso-6.webm" type="video/webm"><source src="assets/video/percorso-6.mp4" type="video/mp4"></video></div>
-            <div class="step-body"><h3>Il risultato</h3><p>Torni a casa con il sorriso che aspettavi. Restiamo in contatto anche dopo.</p></div>
+            <div class="step-media"><span class="number">5</span><img src="assets/images/journey-photos/scene-5-risultato.jpg" alt="Donna sorridente all'aperto al tramonto, sorriso finale rivelato" loading="lazy" width="1200" height="960"></div>
+            <div class="step-body"><h3>Il risultato</h3><p>Torni a casa con il sorriso che desideravi da anni — e con la sicurezza di aver scelto un percorso serio, seguito passo dopo passo. Il cambiamento non è solo estetico: è la fiducia che ritrovi ogni volta che sorridi.</p></div>
           </article>
         </div>
         <p class="fine-print centered">La valutazione definitiva e il piano clinico possono essere confermati solo dopo la visita del professionista sanitario.</p>
@@ -594,8 +585,7 @@ Il nostro obiettivo non è soltanto offrirti un nuovo sorriso, ma garantirti qua
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="js/cinema.js" defer></script>
 
-  <!-- "Come funziona" WebGL journey: pure progressive enhancement, see js/journey.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js" defer></script>
+  <!-- "Come funziona" cross-dissolve journey: pure progressive enhancement, see js/journey.js -->
   <script src="js/journey.js" defer></script>
 </body>
 </html>
